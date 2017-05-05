@@ -10,16 +10,16 @@ public class EchoClient {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, IOException, CertificateException, UnrecoverableKeyException {
         // key store相关信息
-        String keyName = "target/classes/pers/guxiaoyong/ssl/client/mySrvKeystore";
+        String keyName = "/Users/guxiaoyong/Documents/workspace/mySrvKeystore";
         char[] keyStorePwd = "123456".toCharArray();
         char[] keyPwd = "123456".toCharArray();
         // port 协议类型
-        String serverAddress = "localhost";
+        String serverAddress = "192.168.0.104";
         int port = 9999;
-        String protocol = "TLSv1.2";
+        String protocol = "ssl";
 
         // 装载当前目录下的key store. 可用jdk中的keytool工具生成keystore
-        KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+        KeyStore ks = KeyStore.getInstance("JKS");
         InputStream ksIs = new FileInputStream(keyName);
         try {
             ks.load(ksIs, keyStorePwd);
@@ -57,7 +57,7 @@ public class EchoClient {
             SSLSocket sslsocket = (SSLSocket) sslsocketfactory.createSocket(serverAddress, port);
             sslsocket.setEnabledCipherSuites(sSLContext.getServerSocketFactory().getSupportedCipherSuites());
             sslsocket.setEnabledProtocols(new String[] {"TLSv1", "TLSv1.1", "TLSv1.2", "SSLv3"});
-
+            System.out.println(sslsocket.getRemoteSocketAddress());
             InputStream inputstream = System.in;
             InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
             BufferedReader bufferedreader = new BufferedReader(inputstreamreader);

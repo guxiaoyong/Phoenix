@@ -11,14 +11,14 @@ public class EchoServer {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, KeyStoreException, IOException, UnrecoverableKeyException, CertificateException, KeyManagementException {
         // key store相关信息
-        String keyName = "target/classes/pers/guxiaoyong/ssl/server/mySrvKeystore";
+        String keyName = "/Users/guxiaoyong/Documents/workspace/mySrvKeystore";
         char[] keyStorePwd = "123456".toCharArray();
         char[] keyPwd = "123456".toCharArray();
         // port 协议类型
         int port = 9999;
         String protocol = "TLSv1.2";
         // 装载当前目录下的key store. 可用jdk中的keytool工具生成keystore
-        KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+        KeyStore ks = KeyStore.getInstance("JKS");
         InputStream ksIs = new FileInputStream(keyName);
         try {
             ks.load(ksIs, keyStorePwd);
