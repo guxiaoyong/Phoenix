@@ -1,7 +1,6 @@
-package pers.guxiaoyong.cocurrent;
+package pers.guxiaoyong.cocurrent.semaphore;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
@@ -11,7 +10,7 @@ import java.util.concurrent.Semaphore;
  * Time:下午7:43.
  * Description:
  */
-public class Xinhaoliang {
+public class SemaphoreTest {
 
     public static void main(String[] args) {
 

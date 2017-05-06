@@ -1,4 +1,4 @@
-package pers.guxiaoyong.cocurrent;
+package pers.guxiaoyong.cocurrent.semaphore;
 
 import java.util.List;
 import java.util.concurrent.Semaphore;
